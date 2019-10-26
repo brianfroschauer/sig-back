@@ -23,9 +23,6 @@ public class Senasa {
     @Column(name = "denomination")
     private String denomination;
 
-    @Column(name = "batch")
-    private int batch;
-
     @Column(name = "business_name")
     private String businessName;
 
