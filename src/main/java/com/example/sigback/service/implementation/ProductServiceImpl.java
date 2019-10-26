@@ -5,7 +5,6 @@ import com.example.sigback.exception.EntityNotFoundException;
 import com.example.sigback.repository.ProductRepository;
 import com.example.sigback.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,7 +12,6 @@ import java.util.List;
  * Author: brianfroschauer
  * Date: 26/10/2019
  */
-@Service
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
