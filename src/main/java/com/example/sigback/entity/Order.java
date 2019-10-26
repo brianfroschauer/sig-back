@@ -12,7 +12,7 @@ import java.time.LocalDate;
  */
 @Data
 @NoArgsConstructor
-@Entity(name = "order")
+@Entity(name = "purchase_order")
 public class Order {
 
     @Id
@@ -21,7 +21,7 @@ public class Order {
     private Long id;
 
     @Column(name = "created_date")
-    private LocalDate createdDate;
+    private LocalDate createdDate = LocalDate.now();
 
     @Column(name = "amount")
     private int amount;
