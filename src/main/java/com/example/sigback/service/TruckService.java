@@ -1,7 +1,6 @@
 package com.example.sigback.service;
 
 import com.example.sigback.entity.Truck;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -9,7 +8,6 @@ import java.util.List;
  * Author: brianfroschauer
  * Date: 26/10/2019
  */
-@Service
 public interface TruckService {
 
     /**
