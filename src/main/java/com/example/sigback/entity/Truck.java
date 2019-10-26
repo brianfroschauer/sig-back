@@ -1,11 +1,34 @@
 package com.example.sigback.entity;
 
-import javax.persistence.Entity;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 /**
  * Author: brianfroschauer
  * Date: 25/10/2019
  */
-@Entity
+@Data
+@NoArgsConstructor
+@Entity(name = "truck")
 public class Truck {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "enrollment")
+    private String enrollment;
+
+    @Column(name = "brand")
+    private String brand;
+
+    @Column(name = "model")
+    private String model;
+
+    @OneToOne
+    @JoinColumn(name = "driver_id", unique = true)
+    private Driver driver;
 }
