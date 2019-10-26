@@ -3,8 +3,7 @@ package com.example.sigback.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * Author: brianfroschauer
@@ -14,6 +13,11 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @Entity(name = "supplier")
 public class Supplier {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "name")
     private String name;
