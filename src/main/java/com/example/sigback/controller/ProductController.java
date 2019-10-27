@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
  * Author: brianfroschauer
  * Date: 26/10/2019
  */
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/products")
 public class ProductController {
