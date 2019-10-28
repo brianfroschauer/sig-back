@@ -17,6 +17,6 @@ public class ProductDTO {
 
     private Long id;
     private String name;
-    @Pattern(regexp = "Kilogramos | Gramos | Toneladas | Litros | Mililitros")
+    @Pattern(regexp = "Kilogramos|Gramos|Toneladas|Litros|Mililitros")
     private String unit;
 }
