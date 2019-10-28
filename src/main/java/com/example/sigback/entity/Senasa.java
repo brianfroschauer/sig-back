@@ -33,7 +33,7 @@ public class Senasa {
     private boolean certification;
 
     @Column(name = "created_date")
-    private LocalDate createdDate = LocalDate.now();
+    private LocalDate createdDate;
 
     @Column(name = "expiration_date")
     private LocalDate expirationDate;
