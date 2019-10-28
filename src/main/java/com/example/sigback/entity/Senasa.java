@@ -39,6 +39,6 @@ public class Senasa {
     private LocalDate expirationDate;
 
     @OneToOne
-    @JoinColumn(name = "product_id", unique = true)
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 }
