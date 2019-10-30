@@ -7,6 +7,7 @@ import com.example.sigback.service.InalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -38,6 +39,7 @@ public class InalServiceImpl implements InalService {
 
     @Override
     public Inal create(Inal inal) {
+        inal.setCreatedDate(LocalDate.now());
         return repository
                 .save(inal);
     }
@@ -47,9 +49,10 @@ public class InalServiceImpl implements InalService {
         return repository
                 .findById(id)
                 .map(old -> {
-                    old.setDenomination(inal.getDenomination());
                     old.setRnpa(inal.getRnpa());
                     old.setBatch(inal.getBatch());
+                    old.setProduct(inal.getProduct());
+                    old.setDenomination(inal.getDenomination());
                     old.setBusinessName(inal.getBusinessName());
                     old.setExpirationDate(inal.getExpirationDate());
                     return repository.save(old);
