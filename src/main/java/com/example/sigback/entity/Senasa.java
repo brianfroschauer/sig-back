@@ -29,9 +29,6 @@ public class Senasa {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "certification")
-    private boolean certification;
-
     @Column(name = "created_date")
     private LocalDate createdDate;
 

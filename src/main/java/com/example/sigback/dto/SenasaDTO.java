@@ -20,7 +20,6 @@ public class SenasaDTO {
     private String denomination;
     private String businessName;
     private String country;
-    private boolean certification;
     private LocalDate createdDate;
     private LocalDate expirationDate;
     private Product product;
