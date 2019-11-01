@@ -49,11 +49,12 @@ public class SenasaServiceImpl implements SenasaService {
         return repository
                 .findById(id)
                 .map(old -> {
-                    old.setExpirationDate(senasa.getExpirationDate());
                     old.setBusinessName(senasa.getBusinessName());
-                    old.setDenomination(senasa.getDenomination());
                     old.setCountry(senasa.getCountry());
                     old.setProduct(senasa.getProduct());
+                    old.setAmount(senasa.getAmount());
+                    old.setBatch(senasa.getBatch());
+                    old.setReviewRequired(senasa.isReviewRequired());
                     return repository.save(old);
                 })
                 .orElseThrow(EntityNotFoundException::new);
