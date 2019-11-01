@@ -1,6 +1,7 @@
 package com.example.sigback.service.implementation;
 
 import com.example.sigback.entity.Order;
+import com.example.sigback.entity.Product;
 import com.example.sigback.exception.EntityNotFoundException;
 import com.example.sigback.repository.OrderRepository;
 import com.example.sigback.service.OrderService;
@@ -32,14 +33,19 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> findAll() {
-        return repository
-                .findAll();
+        return repository.findAll();
     }
 
     @Override
     public Order create(Order order) {
-        return repository
-                .save(order);
+        return repository.save(order);
+    }
+
+    @Override
+    public Order addProduct(Long id, Product product) {
+        final Order order = findOne(id);
+        order.addProduct(product);
+        return repository.save(order);
     }
 
     @Override
@@ -47,7 +53,6 @@ public class OrderServiceImpl implements OrderService {
         return repository
                 .findById(id)
                 .map(old -> {
-                    old.setAmount(order.getAmount());
                     old.setPrice(order.getPrice());
                     return repository.save(old);
                 })
@@ -56,10 +61,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void delete(Long id) {
-        final Order order = repository
-                .findById(id)
-                .orElseThrow(EntityNotFoundException::new);
-
+        final Order order = findOne(id);
         repository.delete(order);
     }
 }
