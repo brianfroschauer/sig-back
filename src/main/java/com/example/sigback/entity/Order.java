@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Author: brianfroschauer
@@ -20,16 +22,26 @@ public class Order {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "created_date")
-    private LocalDate createdDate = LocalDate.now();
-
-    @Column(name = "amount")
-    private int amount;
-
     @Column(name = "price")
     private float price;
 
+    @Column(name = "created_date")
+    private LocalDate createdDate = LocalDate.now();
+
+    @Column(name = "verified")
+    private boolean verified = false;
+
     @OneToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
+
+    @ManyToMany
+    @JoinTable(name = "order_product",
+            joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
+    private Set<Product> products = new HashSet<>();
+
+    public void addProduct(Product product) {
+        products.add(product);
+    }
 }

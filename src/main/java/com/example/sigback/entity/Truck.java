@@ -28,6 +28,9 @@ public class Truck {
     @Column(name = "model")
     private String model;
 
+    @Column(name = "insurance")
+    private String insurance;
+
     @OneToOne
     @JoinColumn(name = "driver_id", unique = true)
     private Driver driver;

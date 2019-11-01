@@ -29,6 +29,9 @@ public class Inal {
     @Column(name = "batch")
     private int batch;
 
+    @Column(name = "amount")
+    private int amount;
+
     @Column(name = "business_name")
     private String businessName;
 

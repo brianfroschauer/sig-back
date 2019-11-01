@@ -20,8 +20,14 @@ public class Senasa {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "denomination")
-    private String denomination;
+    @Column(name = "batch")
+    private int batch;
+
+    @Column(name = "amount")
+    private int amount;
+
+    @Column(name = "review_required")
+    private boolean reviewRequired;
 
     @Column(name = "business_name")
     private String businessName;
@@ -31,9 +37,6 @@ public class Senasa {
 
     @Column(name = "created_date")
     private LocalDate createdDate;
-
-    @Column(name = "expiration_date")
-    private LocalDate expirationDate;
 
     @OneToOne
     @JoinColumn(name = "product_id", nullable = false)
