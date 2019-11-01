@@ -1,6 +1,8 @@
 package com.example.sigback.service;
 
+import com.example.sigback.dto.ProductDTO;
 import com.example.sigback.entity.Order;
+import com.example.sigback.entity.Product;
 
 import java.util.List;
 
@@ -32,6 +34,15 @@ public interface OrderService {
      * @return the created order.
      */
     Order create(Order order);
+
+    /**
+     * Add product to the order with the provided id.
+     *
+     * @param id the order id.
+     * @param product to be added.
+     * @return the updated order.
+     */
+    Order addProduct(Long id, Product product);
 
     /**
      * Update the order with the provided id.
