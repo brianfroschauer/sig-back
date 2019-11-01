@@ -25,11 +25,14 @@ public class Order {
     @Column(name = "price")
     private float price;
 
-    @Column(name = "created_date")
-    private LocalDate createdDate = LocalDate.now();
+    @Column(name = "amount")
+    private int amount;
 
     @Column(name = "verified")
     private boolean verified = false;
+
+    @Column(name = "created_date")
+    private LocalDate createdDate = LocalDate.now();
 
     @OneToOne
     @JoinColumn(name = "supplier_id")
