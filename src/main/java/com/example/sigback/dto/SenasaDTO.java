@@ -17,10 +17,10 @@ import java.time.LocalDate;
 public class SenasaDTO {
 
     private Long id;
-    private String denomination;
+    private int batch;
+    private int amount;
     private String businessName;
     private String country;
     private LocalDate createdDate;
-    private LocalDate expirationDate;
     private Product product;
 }

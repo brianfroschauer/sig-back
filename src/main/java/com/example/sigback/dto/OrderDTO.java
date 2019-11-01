@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 /**
  * Author: brianfroschauer
@@ -16,8 +17,9 @@ import java.time.LocalDate;
 public class OrderDTO {
 
     private Long id;
-    private LocalDate createdDate;
-    private int amount;
     private float price;
-    private ProductDTO product;
+    private boolean verified;
+    private LocalDate createdDate;
+    private SupplierDTO supplier;
+    private Set<ProductDTO> products;
 }

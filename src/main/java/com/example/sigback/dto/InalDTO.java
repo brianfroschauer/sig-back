@@ -16,9 +16,9 @@ import java.time.LocalDate;
 public class InalDTO {
 
     private Long id;
-    private String denomination;
     private long rnpa;
     private int batch;
+    private int amount;
     private String businessName;
     private LocalDate createdDate;
     private LocalDate expirationDate;
