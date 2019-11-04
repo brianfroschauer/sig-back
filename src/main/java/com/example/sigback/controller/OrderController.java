@@ -5,8 +5,13 @@ import com.example.sigback.dto.RemitoDTO;
 import com.example.sigback.entity.Order;
 import com.example.sigback.entity.Remito;
 import com.example.sigback.service.OrderService;
+import net.kaczmarzyk.spring.data.jpa.domain.Equal;
+import net.kaczmarzyk.spring.data.jpa.domain.Like;
+import net.kaczmarzyk.spring.data.jpa.web.annotation.Or;
+import net.kaczmarzyk.spring.data.jpa.web.annotation.Spec;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -42,18 +47,8 @@ public class OrderController {
 
     @GetMapping
     public ResponseEntity<List<OrderDTO>> findAll() {
+
         final List<Order> orders = service.findAll();
-
-        final List<OrderDTO> orderDTOs = orders.stream()
-                .map(order -> mapper.map(order, OrderDTO.class))
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(orderDTOs);
-    }
-
-    @GetMapping("/verified")
-    public ResponseEntity<List<OrderDTO>> findAllVerified() {
-        final List<Order> orders = service.findAllVerified();
 
         final List<OrderDTO> orderDTOs = orders.stream()
                 .map(order -> mapper.map(order, OrderDTO.class))

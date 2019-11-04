@@ -25,11 +25,8 @@ public class Order {
     @Column(name = "price")
     private float price;
 
-    @Column(name = "verified")
-    private boolean verified = false;
-
-    @Column(name = "valid_documentation")
-    private boolean validDocumentation = false;
+    @Column(name = "state")
+    private OrderState state = OrderState.COMING;
 
     @Column(name = "created_date")
     private LocalDate createdDate = LocalDate.now();

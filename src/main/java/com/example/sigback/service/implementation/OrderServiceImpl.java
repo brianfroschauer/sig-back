@@ -1,6 +1,7 @@
 package com.example.sigback.service.implementation;
 
 import com.example.sigback.entity.Order;
+import com.example.sigback.entity.OrderState;
 import com.example.sigback.entity.Remito;
 import com.example.sigback.exception.EntityNotFoundException;
 import com.example.sigback.exception.InvalidOrderException;
@@ -39,11 +40,6 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> findAllVerified() {
-        return repository.findAllByVerifiedIsTrue();
-    }
-
-    @Override
     public Order create(Order order) {
         order.setCreatedDate(LocalDate.now());
         return repository.save(order);
@@ -57,7 +53,7 @@ public class OrderServiceImpl implements OrderService {
             !order.getCreatedDate().equals(remito.getCreatedDate())) {
             throw new InvalidOrderException();
         }
-        order.setValidDocumentation(true);
+        order.setState(OrderState.PLANT);
         return repository.save(order);
     }
 
@@ -67,8 +63,7 @@ public class OrderServiceImpl implements OrderService {
                 .findById(id)
                 .map(old -> {
                     old.setPrice(order.getPrice());
-                    old.setVerified(order.isVerified());
-                    old.setValidDocumentation(order.isValidDocumentation());
+                    old.setState(order.getState());
                     return repository.save(old);
                 })
                 .orElseThrow(EntityNotFoundException::new);

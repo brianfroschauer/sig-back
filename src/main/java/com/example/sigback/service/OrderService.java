@@ -1,8 +1,6 @@
 package com.example.sigback.service;
 
-import com.example.sigback.dto.RemitoDTO;
 import com.example.sigback.entity.Order;
-import com.example.sigback.entity.Product;
 import com.example.sigback.entity.Remito;
 
 import java.util.List;
@@ -27,13 +25,6 @@ public interface OrderService {
      * @return all orders or an empty list if there are no orders.
      */
     List<Order> findAll();
-
-    /**
-     * Find all verified orders.
-     *
-     * @return return all verified orders.
-     */
-    List<Order> findAllVerified();
 
     /**
      * Create a new order.
