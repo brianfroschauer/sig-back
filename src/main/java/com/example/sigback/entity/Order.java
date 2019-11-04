@@ -29,7 +29,7 @@ public class Order {
     private int amount;
 
     @Column(name = "verified")
-    private boolean verified = false;
+    private boolean verified;
 
     @Column(name = "created_date")
     private LocalDate createdDate = LocalDate.now();
@@ -38,13 +38,7 @@ public class Order {
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
 
-    @ManyToMany
-    @JoinTable(name = "order_product",
-            joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-    private Set<Product> products = new HashSet<>();
-
-    public void addProduct(Product product) {
-        products.add(product);
-    }
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
+    private Set<OrderItem> items = new HashSet<>();
 }
