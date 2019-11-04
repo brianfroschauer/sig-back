@@ -48,6 +48,7 @@ public class OrderServiceImpl implements OrderService {
                 .findById(id)
                 .map(old -> {
                     old.setPrice(order.getPrice());
+                    old.setVerified(order.isVerified());
                     return repository.save(old);
                 })
                 .orElseThrow(EntityNotFoundException::new);
