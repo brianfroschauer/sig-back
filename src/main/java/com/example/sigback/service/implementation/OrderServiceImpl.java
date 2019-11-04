@@ -45,13 +45,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void validate(Long id, Remito remito) {
+    public Order validate(Long id, Remito remito) {
         final Order order = findOne(id);
         if (!order.getItems().equals(remito.getItems()) ||
             !order.getSupplier().equals(remito.getSupplier()) ||
             !order.getCreatedDate().equals(remito.getCreatedDate())) {
             throw new InvalidOrderException();
         }
+        order.setValidDocumentation(true);
+        return repository.save(order);
     }
 
     @Override
@@ -61,6 +63,7 @@ public class OrderServiceImpl implements OrderService {
                 .map(old -> {
                     old.setPrice(order.getPrice());
                     old.setVerified(order.isVerified());
+                    old.setValidDocumentation(order.isValidDocumentation());
                     return repository.save(old);
                 })
                 .orElseThrow(EntityNotFoundException::new);

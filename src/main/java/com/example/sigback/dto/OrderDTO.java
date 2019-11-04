@@ -19,6 +19,7 @@ public class OrderDTO {
     private Long id;
     private float price;
     private boolean verified;
+    private boolean validDocumentation;
     private LocalDate createdDate;
     private SupplierDTO supplier;
     private Set<OrderItemDTO> items;

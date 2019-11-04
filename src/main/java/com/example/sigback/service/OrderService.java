@@ -41,8 +41,9 @@ public interface OrderService {
      *
      * @param id of the order to be validated.
      * @param remito to be compared with the order.
+     *  @return the validated order.
      */
-    void validate(Long id, Remito remito);
+    Order validate(Long id, Remito remito);
 
     /**
      * Update the order with the provided id.

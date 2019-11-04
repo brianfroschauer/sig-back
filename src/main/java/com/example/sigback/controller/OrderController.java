@@ -65,8 +65,8 @@ public class OrderController {
     @PostMapping("/{id}/validate")
     public ResponseEntity<OrderDTO> validate(@PathVariable Long id,
                                              @RequestBody @Valid RemitoDTO remitoDTO) {
-        service.validate(id, mapper.map(remitoDTO, Remito.class));
-        return ResponseEntity.noContent().build();
+        Order order = service.validate(id, mapper.map(remitoDTO, Remito.class));
+        return ResponseEntity.ok(mapper.map(order, OrderDTO.class));
     }
 
     @PutMapping("/{id}")

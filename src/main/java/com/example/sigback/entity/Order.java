@@ -26,7 +26,10 @@ public class Order {
     private float price;
 
     @Column(name = "verified")
-    private boolean verified;
+    private boolean verified = false;
+
+    @Column(name = "valid_documentation")
+    private boolean validDocumentation = false;
 
     @Column(name = "created_date")
     private LocalDate createdDate = LocalDate.now();
