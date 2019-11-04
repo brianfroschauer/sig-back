@@ -29,6 +29,13 @@ public interface OrderService {
     List<Order> findAll();
 
     /**
+     * Find all verified orders.
+     *
+     * @return return all verified orders.
+     */
+    List<Order> findAllVerified();
+
+    /**
      * Create a new order.
      *
      * @param order to be created.

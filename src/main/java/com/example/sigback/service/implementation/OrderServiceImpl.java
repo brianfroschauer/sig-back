@@ -39,6 +39,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<Order> findAllVerified() {
+        return repository.findAllByVerifiedIsTrue();
+    }
+
+    @Override
     public Order create(Order order) {
         order.setCreatedDate(LocalDate.now());
         return repository.save(order);

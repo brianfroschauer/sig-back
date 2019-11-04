@@ -51,6 +51,18 @@ public class OrderController {
         return ResponseEntity.ok(orderDTOs);
     }
 
+    @GetMapping
+    public ResponseEntity<List<OrderDTO>> findAllVerified() {
+        final List<Order> orders = service.findAllVerified();
+
+        final List<OrderDTO> orderDTOs = orders.stream()
+                .map(order -> mapper.map(order, OrderDTO.class))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(orderDTOs);
+    }
+
+
     @PostMapping
     public ResponseEntity<OrderDTO> create(@RequestBody @Valid OrderDTO orderDTO) {
         final Order order = service.create(mapper.map(orderDTO, Order.class));
