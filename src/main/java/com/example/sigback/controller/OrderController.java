@@ -1,9 +1,7 @@
 package com.example.sigback.controller;
 
 import com.example.sigback.dto.OrderDTO;
-import com.example.sigback.dto.ProductDTO;
 import com.example.sigback.entity.Order;
-import com.example.sigback.entity.Product;
 import com.example.sigback.service.OrderService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,14 +58,6 @@ public class OrderController {
                 .buildAndExpand(order.getId()).toUri();
 
         return ResponseEntity.created(location).body(mapper.map(order, OrderDTO.class));
-    }
-
-    @PostMapping("/{id}/products")
-    public ResponseEntity<OrderDTO> addProduct(@PathVariable Long id,
-                                               @RequestBody @Valid ProductDTO productDTO) {
-
-        final Order order = service.addProduct(id, mapper.map(productDTO, Product.class));
-        return ResponseEntity.ok(mapper.map(order, OrderDTO.class));
     }
 
     @PutMapping("/{id}")
