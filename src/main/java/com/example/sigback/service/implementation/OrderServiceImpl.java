@@ -59,7 +59,7 @@ public class OrderServiceImpl implements OrderService {
             !order.getCreatedDate().equals(remito.getCreatedDate())) {
             throw new InvalidOrderException();
         }
-        order.setState(OrderState.PLANT);
+        order.setState(OrderState.VALID);
         return repository.save(order);
     }
 

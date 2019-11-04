@@ -5,5 +5,5 @@ package com.example.sigback.entity;
  * Date: 04/11/2019
  */
 public enum OrderState {
-    COMING, PLANT, QUALITY, STOCK, CONFLICT
+    COMING, PLANT, VALID, QUALITY, STOCK, CONFLICT
 }
