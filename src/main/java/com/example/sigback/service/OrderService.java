@@ -27,6 +27,12 @@ public interface OrderService {
     List<Order> findAll();
 
     /**
+     *
+     * @return
+     */
+    List<Order> findAllInPlant();
+
+    /**
      * Create a new order.
      *
      * @param order to be created.

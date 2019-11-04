@@ -40,6 +40,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<Order> findAllInPlant() {
+        return repository.findAllByState_Plant();
+    }
+
+    @Override
     public Order create(Order order) {
         order.setCreatedDate(LocalDate.now());
         order.setState(OrderState.COMING);
