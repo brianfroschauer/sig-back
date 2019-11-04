@@ -26,6 +26,12 @@ public interface ProductService {
     List<Product> findAll();
 
     /**
+     * Find all quality products.
+     * @return all products or an empty list if there are no products.
+     */
+    List<Product> findQualityProducts();
+
+    /**
      * Create a new product.
      *
      * @param product to be created.

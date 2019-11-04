@@ -49,6 +49,17 @@ public class ProductController {
         return ResponseEntity.ok(productDTOs);
     }
 
+    @GetMapping("/quality")
+    public ResponseEntity<List<ProductDTO>> findQualityProducts() {
+        final List<Product> products = service.findQualityProducts();
+
+        final List<ProductDTO> productDTOs = products.stream()
+                .map(product -> mapper.map(product, ProductDTO.class))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(productDTOs);
+    }
+
     @PostMapping
     public ResponseEntity<ProductDTO> create(@RequestBody @Valid ProductDTO productDTO) {
         final Product product = service.create(mapper.map(productDTO, Product.class));

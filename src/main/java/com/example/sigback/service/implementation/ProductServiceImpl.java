@@ -37,6 +37,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> findQualityProducts() {
+        return repository.findQualityProducts(true);
+    }
+
+    @Override
     public Product create(Product product) {
         return repository
                 .save(product);
