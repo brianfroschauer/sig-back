@@ -25,9 +25,6 @@ public class Order {
     @Column(name = "price")
     private float price;
 
-    @Column(name = "amount")
-    private int amount;
-
     @Column(name = "verified")
     private boolean verified;
 
