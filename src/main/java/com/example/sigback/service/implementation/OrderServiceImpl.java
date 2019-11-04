@@ -1,13 +1,13 @@
 package com.example.sigback.service.implementation;
 
 import com.example.sigback.entity.Order;
-import com.example.sigback.entity.Product;
 import com.example.sigback.exception.EntityNotFoundException;
 import com.example.sigback.repository.OrderRepository;
 import com.example.sigback.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -38,13 +38,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order create(Order order) {
-        return repository.save(order);
-    }
-
-    @Override
-    public Order addProduct(Long id, Product product) {
-        final Order order = findOne(id);
-        order.addProduct(product);
+        order.setCreatedDate(LocalDate.now());
         return repository.save(order);
     }
 
