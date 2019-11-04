@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Data
 @NoArgsConstructor
-@Entity(name = "purchase_order")
+@Entity(name = "claim")
 public class Claim {
 
     @Id
