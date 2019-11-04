@@ -1,7 +1,9 @@
 package com.example.sigback.controller;
 
 import com.example.sigback.dto.OrderDTO;
+import com.example.sigback.dto.RemitoDTO;
 import com.example.sigback.entity.Order;
+import com.example.sigback.entity.Remito;
 import com.example.sigback.service.OrderService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +60,13 @@ public class OrderController {
                 .buildAndExpand(order.getId()).toUri();
 
         return ResponseEntity.created(location).body(mapper.map(order, OrderDTO.class));
+    }
+
+    @PostMapping("/{id}/validate")
+    public ResponseEntity<OrderDTO> validate(@PathVariable Long id,
+                                             @RequestBody @Valid RemitoDTO remitoDTO) {
+        service.validate(id, mapper.map(remitoDTO, Remito.class));
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}")

@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Author: brianfroschauer
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity(name = "order_item")
-class OrderItem {
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,4 +26,18 @@ class OrderItem {
 
     @Column(name = "quantity")
     private int quantity;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrderItem orderItem = (OrderItem) o;
+        return getQuantity() == orderItem.getQuantity() &&
+                Objects.equals(getProduct(), orderItem.getProduct());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getProduct(), getQuantity());
+    }
 }

@@ -1,7 +1,9 @@
 package com.example.sigback.service;
 
+import com.example.sigback.dto.RemitoDTO;
 import com.example.sigback.entity.Order;
 import com.example.sigback.entity.Product;
+import com.example.sigback.entity.Remito;
 
 import java.util.List;
 
@@ -33,6 +35,14 @@ public interface OrderService {
      * @return the created order.
      */
     Order create(Order order);
+
+    /**
+     * Validate the order with the provided id.
+     *
+     * @param id of the order to be validated.
+     * @param remito to be compared with the order.
+     */
+    void validate(Long id, Remito remito);
 
     /**
      * Update the order with the provided id.

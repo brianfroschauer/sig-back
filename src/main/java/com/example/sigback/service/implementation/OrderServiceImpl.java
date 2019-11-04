@@ -1,7 +1,12 @@
 package com.example.sigback.service.implementation;
 
+import com.example.sigback.dto.OrderItemDTO;
+import com.example.sigback.dto.RemitoDTO;
 import com.example.sigback.entity.Order;
+import com.example.sigback.entity.OrderItem;
+import com.example.sigback.entity.Remito;
 import com.example.sigback.exception.EntityNotFoundException;
+import com.example.sigback.exception.InvalidOrderException;
 import com.example.sigback.repository.OrderRepository;
 import com.example.sigback.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +45,16 @@ public class OrderServiceImpl implements OrderService {
     public Order create(Order order) {
         order.setCreatedDate(LocalDate.now());
         return repository.save(order);
+    }
+
+    @Override
+    public void validate(Long id, Remito remito) {
+        final Order order = findOne(id);
+        if (!order.getItems().equals(remito.getItems()) ||
+            !order.getSupplier().equals(remito.getSupplier()) ||
+            !order.getCreatedDate().equals(remito.getCreatedDate())) {
+            throw new InvalidOrderException();
+        }
     }
 
     @Override
