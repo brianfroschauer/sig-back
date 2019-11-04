@@ -35,15 +35,6 @@ public interface OrderService {
     Order create(Order order);
 
     /**
-     * Add product to the order with the provided id.
-     *
-     * @param id the order id.
-     * @param product to be added.
-     * @return the updated order.
-     */
-    Order addProduct(Long id, Product product);
-
-    /**
      * Update the order with the provided id.
      *
      * @param id of the order to be updated.
