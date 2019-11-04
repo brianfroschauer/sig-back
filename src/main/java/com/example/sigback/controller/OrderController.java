@@ -51,7 +51,7 @@ public class OrderController {
         return ResponseEntity.ok(orderDTOs);
     }
 
-    @GetMapping
+    @GetMapping("/verified")
     public ResponseEntity<List<OrderDTO>> findAllVerified() {
         final List<Order> orders = service.findAllVerified();
 
@@ -61,7 +61,6 @@ public class OrderController {
 
         return ResponseEntity.ok(orderDTOs);
     }
-
 
     @PostMapping
     public ResponseEntity<OrderDTO> create(@RequestBody @Valid OrderDTO orderDTO) {
