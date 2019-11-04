@@ -27,8 +27,8 @@ public interface OrderService {
     List<Order> findAll();
 
     /**
-     *
-     * @return
+     * Find all orders.
+     * @return all orders or an empty list if there are no orders.
      */
     List<Order> findAllInPlant();
 

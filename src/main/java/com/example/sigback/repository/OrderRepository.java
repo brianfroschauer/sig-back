@@ -1,6 +1,7 @@
 package com.example.sigback.repository;
 
 import com.example.sigback.entity.Order;
+import com.example.sigback.entity.OrderState;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -11,5 +12,5 @@ import java.util.List;
  */
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    List<Order> findAllByState_Plant();
+    List<Order> findAllByState(OrderState state);
 }

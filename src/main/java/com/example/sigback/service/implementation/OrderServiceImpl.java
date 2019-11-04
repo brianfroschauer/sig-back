@@ -41,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> findAllInPlant() {
-        return repository.findAllByState_Plant();
+        return repository.findAllByState(OrderState.PLANT);
     }
 
     @Override

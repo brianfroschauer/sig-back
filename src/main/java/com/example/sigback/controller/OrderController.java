@@ -52,7 +52,7 @@ public class OrderController {
         return ResponseEntity.ok(orderDTOs);
     }
 
-    @GetMapping("plant")
+    @GetMapping("/plant")
     public ResponseEntity<List<OrderDTO>> findAllInPlant() {
 
         final List<Order> orders = service.findAllInPlant();
