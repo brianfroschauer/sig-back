@@ -22,5 +22,5 @@ public class OrderDTO {
     private boolean verified;
     private LocalDate createdDate;
     private SupplierDTO supplier;
-    private Set<ProductDTO> products;
+    private Set<OrderItemDTO> items;
 }
