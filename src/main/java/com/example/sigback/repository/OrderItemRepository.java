@@ -1,6 +1,7 @@
 package com.example.sigback.repository;
 
 import com.example.sigback.entity.OrderItem;
+import com.example.sigback.entity.OrderState;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -12,6 +13,6 @@ import java.util.List;
  */
 public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
 
-    @Query(value = "select * from order_item where order_item.product_id in (select product.id from product where product.id in (select senasa.product_id from senasa where senasa.review_required = ?1))", nativeQuery = true)
-    List<OrderItem> findQualityOrderItems(boolean reviewRequired);
+    @Query(value = "select * from order_item where order_item.order_id in (select * from purchase_order where purchase_order.state = ?1)", nativeQuery = true)
+    List<OrderItem> findOrderItemByOrderState(OrderState orderState);
 }
