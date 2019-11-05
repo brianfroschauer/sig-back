@@ -1,5 +1,6 @@
 package com.example.sigback.service.implementation;
 
+import com.example.sigback.entity.OrderItem;
 import com.example.sigback.entity.Product;
 import com.example.sigback.exception.EntityNotFoundException;
 import com.example.sigback.repository.ProductRepository;
@@ -37,8 +38,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findQualityProducts() {
-        return repository.findQualityProducts(true);
+    public List<OrderItem> findQualityItems() {
+        return repository.findQualityItems(true);
     }
 
     @Override

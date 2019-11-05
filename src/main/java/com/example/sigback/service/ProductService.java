@@ -1,5 +1,6 @@
 package com.example.sigback.service;
 
+import com.example.sigback.entity.OrderItem;
 import com.example.sigback.entity.Product;
 
 import java.util.List;
@@ -26,10 +27,11 @@ public interface ProductService {
     List<Product> findAll();
 
     /**
-     * Find all quality products.
-     * @return all products or an empty list if there are no products.
+     * Find all quality items.
+     *
+     * @return
      */
-    List<Product> findQualityProducts();
+    List<OrderItem> findQualityItems();
 
     /**
      * Create a new product.
