@@ -47,6 +47,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order create(Order order) {
+        order.getItems().forEach(item -> item.setState(OrderItemState.INITIAL));
         order.setCreatedDate(LocalDate.now());
         order.setState(OrderState.COMING);
         return repository.save(order);
