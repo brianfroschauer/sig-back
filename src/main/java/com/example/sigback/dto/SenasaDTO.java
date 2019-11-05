@@ -19,8 +19,9 @@ public class SenasaDTO {
     private Long id;
     private int batch;
     private int amount;
+    private boolean reviewRequired;
     private String businessName;
     private String country;
     private LocalDate createdDate;
-    private Product product;
+    private ProductDTO product;
 }
