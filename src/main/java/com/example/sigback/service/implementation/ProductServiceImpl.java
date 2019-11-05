@@ -3,6 +3,7 @@ package com.example.sigback.service.implementation;
 import com.example.sigback.entity.OrderItem;
 import com.example.sigback.entity.Product;
 import com.example.sigback.exception.EntityNotFoundException;
+import com.example.sigback.repository.OrderItemRepository;
 import com.example.sigback.repository.ProductRepository;
 import com.example.sigback.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,13 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository repository;
+    private final OrderItemRepository orderItemRepository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository repository) {
+    public ProductServiceImpl(ProductRepository repository,
+                              OrderItemRepository orderItemRepository) {
         this.repository = repository;
+        this.orderItemRepository = orderItemRepository;
     }
 
     @Override
@@ -39,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<OrderItem> findQualityItems() {
-        return repository.findQualityItems(true);
+        return orderItemRepository.findQualityOrderItems(true);
     }
 
     @Override
