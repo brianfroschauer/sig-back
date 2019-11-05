@@ -43,8 +43,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<OrderItem> findQualityItems() {
-        return orderItemRepository.findOrderItemByOrderState(OrderState.VALID);
+    public List<OrderItem> findValidOrderItems() {
+        return orderItemRepository.findValidOrderItems();
     }
 
     @Override

@@ -27,6 +27,9 @@ public class OrderItem {
     @Column(name = "quantity")
     private int quantity;
 
+    @Column(name = "state")
+    private OrderItemState state;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,5 +1,6 @@
 package com.example.sigback.dto;
 
+import com.example.sigback.entity.OrderItemState;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,4 +17,5 @@ public class OrderItemDTO {
     private Long id;
     private ProductDTO product;
     private int quantity;
+    private OrderItemState state;
 }

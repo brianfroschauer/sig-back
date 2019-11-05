@@ -31,7 +31,7 @@ public interface ProductService {
      *
      * @return all quality items.
      */
-    List<OrderItem> findQualityItems();
+    List<OrderItem> findValidOrderItems();
 
     /**
      * Create a new product.

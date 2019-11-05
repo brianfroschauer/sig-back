@@ -52,8 +52,8 @@ public class ProductController {
     }
 
     @GetMapping("/quality")
-    public ResponseEntity<List<OrderItemDTO>> findQualityProducts() {
-        final List<OrderItem> items = service.findQualityItems();
+    public ResponseEntity<List<OrderItemDTO>> findValidOrderItems() {
+        final List<OrderItem> items = service.findValidOrderItems();
 
         final List<OrderItemDTO> itemDTOS = items.stream()
                 .map(item -> mapper.map(item, OrderItemDTO.class))
