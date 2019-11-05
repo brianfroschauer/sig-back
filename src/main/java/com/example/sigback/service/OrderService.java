@@ -41,6 +41,14 @@ public interface OrderService {
     Order create(Order order);
 
     /**
+     * Save a order.
+     *
+     * @param order to be saved.
+     * @return the saved order.
+     */
+    Order save(Order order);
+
+    /**
      * Validate the order with the provided id.
      *
      * @param id of the order to be validated.

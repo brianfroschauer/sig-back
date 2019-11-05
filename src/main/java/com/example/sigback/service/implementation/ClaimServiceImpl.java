@@ -43,7 +43,8 @@ public class ClaimServiceImpl implements ClaimService {
     public Order create(Claim claim) {
         Order order = claim.getOrder();
         order.setState(OrderState.CONFLICT);
-        order = orderService.create(order);
+        order = orderService.save(order);
+        claim.setOrder(order);
         repository.save(claim);
         return order;
     }

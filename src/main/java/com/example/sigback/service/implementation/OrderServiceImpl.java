@@ -52,6 +52,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Order save(Order order) {
+        return repository.save(order);
+    }
+
+    @Override
     public Order validate(Long id, Remito remito) {
         final Order order = findOne(id);
         if (!order.getItems().equals(remito.getItems()) ||
