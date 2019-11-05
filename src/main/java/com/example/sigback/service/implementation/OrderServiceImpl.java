@@ -1,6 +1,7 @@
 package com.example.sigback.service.implementation;
 
 import com.example.sigback.entity.Order;
+import com.example.sigback.entity.OrderItemState;
 import com.example.sigback.entity.OrderState;
 import com.example.sigback.entity.Remito;
 import com.example.sigback.exception.EntityNotFoundException;
@@ -53,6 +54,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order save(Order order) {
+        order.getItems().forEach(item -> item.setState(OrderItemState.INITIAL));
         return repository.save(order);
     }
 
