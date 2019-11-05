@@ -1,8 +1,6 @@
 package com.example.sigback.controller;
 
-import com.example.sigback.dto.OrderItemDTO;
 import com.example.sigback.dto.ProductDTO;
-import com.example.sigback.entity.OrderItem;
 import com.example.sigback.entity.Product;
 import com.example.sigback.service.ProductService;
 import org.modelmapper.ModelMapper;
@@ -49,17 +47,6 @@ public class ProductController {
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(productDTOs);
-    }
-
-    @GetMapping("/quality")
-    public ResponseEntity<List<OrderItemDTO>> findValidOrderItems() {
-        final List<OrderItem> items = service.findValidOrderItems();
-
-        final List<OrderItemDTO> itemDTOS = items.stream()
-                .map(item -> mapper.map(item, OrderItemDTO.class))
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(itemDTOS);
     }
 
     @PostMapping

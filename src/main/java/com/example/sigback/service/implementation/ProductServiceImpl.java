@@ -43,11 +43,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<OrderItem> findValidOrderItems() {
-        return orderItemRepository.findValidOrderItems();
-    }
-
-    @Override
     public Product create(Product product) {
         return repository
                 .save(product);
