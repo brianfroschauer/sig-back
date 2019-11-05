@@ -24,8 +24,8 @@ public class OrderItemServiceImpl implements OrderItemService {
     }
 
     @Override
-    public List<OrderItem> findValidOrderItems() {
-        return repository.findValidOrderItems();
+    public List<OrderItem> findValid() {
+        return repository.findValid();
     }
 
     @Override

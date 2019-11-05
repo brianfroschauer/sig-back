@@ -13,5 +13,5 @@ import java.util.List;
 public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
 
     @Query(value = "select * from order_item where order_item.order_id in (select purchase_order.id from purchase_order where purchase_order.state = 2) and order_item.state = 0", nativeQuery = true)
-    List<OrderItem> findValidOrderItems();
+    List<OrderItem> findValid();
 }
