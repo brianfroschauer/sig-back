@@ -29,7 +29,7 @@ public interface ProductService {
     /**
      * Find all quality items.
      *
-     * @return
+     * @return all quality items.
      */
     List<OrderItem> findQualityItems();
 
