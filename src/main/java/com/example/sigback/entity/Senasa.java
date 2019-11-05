@@ -20,12 +20,6 @@ public class Senasa {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "batch")
-    private int batch;
-
-    @Column(name = "amount")
-    private int amount;
-
     @Column(name = "review_required")
     private boolean reviewRequired;
 

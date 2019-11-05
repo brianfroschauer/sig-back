@@ -16,8 +16,6 @@ import java.time.LocalDate;
 public class SenasaDTO {
 
     private Long id;
-    private int batch;
-    private int amount;
     private boolean reviewRequired;
     private String businessName;
     private String country;

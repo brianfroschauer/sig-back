@@ -52,8 +52,6 @@ public class SenasaServiceImpl implements SenasaService {
                     old.setBusinessName(senasa.getBusinessName());
                     old.setCountry(senasa.getCountry());
                     old.setProduct(senasa.getProduct());
-                    old.setAmount(senasa.getAmount());
-                    old.setBatch(senasa.getBatch());
                     old.setReviewRequired(senasa.isReviewRequired());
                     return repository.save(old);
                 })
