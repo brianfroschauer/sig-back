@@ -1,6 +1,5 @@
 package com.example.sigback.dto;
 
-import com.example.sigback.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
