@@ -2,6 +2,7 @@ package com.example.sigback.controller;
 
 import com.example.sigback.dto.ClaimDTO;
 import com.example.sigback.entity.Claim;
+import com.example.sigback.entity.Order;
 import com.example.sigback.service.ClaimService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
@@ -49,13 +50,13 @@ public class ClaimController {
 
     @PostMapping
     public ResponseEntity<ClaimDTO> create(@RequestBody @Valid ClaimDTO claimDTO) {
-        final Claim claim = service.create(mapper.map(claimDTO, Claim.class));
+        final Order order = service.create(mapper.map(claimDTO, Claim.class));
 
         final URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
-                .buildAndExpand(claim.getId()).toUri();
+                .buildAndExpand(order.getId()).toUri();
 
-        return ResponseEntity.created(location).body(mapper.map(claim, ClaimDTO.class));
+        return ResponseEntity.created(location).body(mapper.map(order, ClaimDTO.class));
     }
 
     @DeleteMapping("/{id}")

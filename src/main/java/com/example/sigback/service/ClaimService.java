@@ -1,6 +1,7 @@
 package com.example.sigback.service;
 
 import com.example.sigback.entity.Claim;
+import com.example.sigback.entity.Order;
 
 import java.util.List;
 
@@ -29,9 +30,9 @@ public interface ClaimService {
      * Create a new claim.
      *
      * @param claim to be created.
-     * @return the created claim.
+     * @return the associated order.
      */
-    Claim create(Claim claim);
+    Order create(Claim claim);
 
     /**
      * Delete a claim with the provided id.
