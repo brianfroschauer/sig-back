@@ -32,6 +32,13 @@ public class SenasaServiceImpl implements SenasaService {
     }
 
     @Override
+    public Senasa findByProduct(Long productId) {
+        return repository
+                .findByProductId(productId)
+                .orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
     public List<Senasa> findAll() {
         return repository
                 .findAll();

@@ -38,6 +38,12 @@ public class SenasaController {
         return ResponseEntity.ok(mapper.map(senasa, SenasaDTO.class));
     }
 
+    @GetMapping("/products")
+    public ResponseEntity<SenasaDTO> findByProduct(@RequestParam(value = "productId") Long productId) {
+        final Senasa senasa = service.findByProduct(productId);
+        return ResponseEntity.ok(mapper.map(senasa, SenasaDTO.class));
+    }
+
     @GetMapping
     public ResponseEntity<List<SenasaDTO>> findAll() {
         final List<Senasa> senasas = service.findAll();

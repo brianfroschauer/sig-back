@@ -19,6 +19,14 @@ public interface SenasaService {
     Senasa findOne(Long id);
 
     /**
+     * Find the senasa with the provided product id.
+     *
+     * @param productId of the senasa to be found.
+     * @return the senasa with the provided product id.
+     */
+    Senasa findByProduct(Long productId);
+
+    /**
      * Find all senasas.
      *
      * @return all senasas or an empty list if there are no senasas.
