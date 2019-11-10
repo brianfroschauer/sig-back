@@ -85,4 +85,14 @@ public class OrderItemServiceImpl implements OrderItemService {
         repository.deleteById(orderItem.getId());
         return orderItem;
     }
+
+    @Override
+    public List<OrderItem> findStock() {
+        return repository.findAllByStateStock();
+    }
+
+    @Override
+    public List<OrderItem> findQuality() {
+        return repository.findAllByStateQuality();
+    }
 }

@@ -42,6 +42,28 @@ public class OrderItemController {
         return ResponseEntity.ok(itemDTOS);
     }
 
+    @GetMapping("/stock")
+    public ResponseEntity<List<OrderItemDTO>> findStock() {
+        final List<OrderItem> items = service.findStock();
+
+        final List<OrderItemDTO> itemDTOS = items.stream()
+                .map(item -> mapper.map(item, OrderItemDTO.class))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(itemDTOS);
+    }
+
+    @GetMapping("/quality")
+    public ResponseEntity<List<OrderItemDTO>> findQuality() {
+        final List<OrderItem> items = service.findQuality();
+
+        final List<OrderItemDTO> itemDTOS = items.stream()
+                .map(item -> mapper.map(item, OrderItemDTO.class))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(itemDTOS);
+    }
+
     @PostMapping("/rack")
     public ResponseEntity<OrderItemDTO> setRack(@RequestBody SetRackDTO setRackDTO) {
         final OrderItem orderItem = service.setRack(setRackDTO.getOrderItem(), setRackDTO.getType());

@@ -28,4 +28,8 @@ public interface OrderItemService {
     OrderItem update(Long id, OrderItem orderItem);
 
     OrderItem setRack(OrderItem orderItem, RackType type);
+
+    List<OrderItem> findStock();
+
+    List<OrderItem> findQuality();
 }
