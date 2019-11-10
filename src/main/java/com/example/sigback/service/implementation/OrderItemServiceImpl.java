@@ -65,7 +65,7 @@ public class OrderItemServiceImpl implements OrderItemService {
 
             int spaceAvailable = stand.getCapacity() - stand.getAmount();
 
-            if (orderItem.getQuantity() > spaceAvailable) {
+            if (orderItem.getQuantity() >= spaceAvailable) {
                 orderItem.setQuantity(orderItem.getQuantity() - spaceAvailable);
                 stand.setFull(true);
                 stand.setAmount(stand.getCapacity());
