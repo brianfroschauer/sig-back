@@ -5,6 +5,7 @@ import com.example.sigback.entity.Rack;
 import com.example.sigback.entity.RackType;
 import com.example.sigback.entity.Stand;
 import com.example.sigback.exception.EntityNotFoundException;
+import com.example.sigback.exception.NoMoreSpaceException;
 import com.example.sigback.repository.OrderItemRepository;
 import com.example.sigback.repository.RackRepository;
 import com.example.sigback.repository.StandRepository;
@@ -60,7 +61,7 @@ public class OrderItemServiceImpl implements OrderItemService {
 
             Stand stand = standRepository
                     .findFirstByRackIdAndIsFullIsFalse(rack.getId())
-                    .orElseThrow(RuntimeException::new);
+                    .orElseThrow(NoMoreSpaceException::new);
 
             int spaceAvailable = stand.getCapacity() - stand.getAmount();
 
