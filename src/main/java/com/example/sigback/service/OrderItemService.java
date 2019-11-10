@@ -32,4 +32,6 @@ public interface OrderItemService {
     List<OrderItem> findStock();
 
     List<OrderItem> findQuality();
+
+    List<OrderItem> findNonConformity();
 }

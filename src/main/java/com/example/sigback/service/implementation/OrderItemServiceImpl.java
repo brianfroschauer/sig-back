@@ -96,4 +96,9 @@ public class OrderItemServiceImpl implements OrderItemService {
     public List<OrderItem> findQuality() {
         return repository.findAllByStateQuality();
     }
+
+    @Override
+    public List<OrderItem> findNonConformity() {
+        return repository.findAllByStateNonConformity();
+    }
 }

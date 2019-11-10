@@ -64,6 +64,17 @@ public class OrderItemController {
         return ResponseEntity.ok(itemDTOS);
     }
 
+    @GetMapping("/non-conformity")
+    public ResponseEntity<List<OrderItemDTO>> findNonConformity() {
+        final List<OrderItem> items = service.findNonConformity();
+
+        final List<OrderItemDTO> itemDTOS = items.stream()
+                .map(item -> mapper.map(item, OrderItemDTO.class))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(itemDTOS);
+    }
+
     @PostMapping("/rack")
     public ResponseEntity<OrderItemDTO> setRack(@RequestBody SetRackDTO setRackDTO) {
         final OrderItem orderItem = service.setRack(setRackDTO.getOrderItem(), setRackDTO.getType());

@@ -20,4 +20,7 @@ public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
 
     @Query(value = "select * from order_item where order_item.state = 2", nativeQuery = true)
     List<OrderItem> findAllByStateQuality();
+
+    @Query(value = "select * from order_item where order_item.state = 3", nativeQuery = true)
+    List<OrderItem> findAllByStateNonConformity();
 }
