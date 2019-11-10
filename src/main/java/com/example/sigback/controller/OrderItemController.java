@@ -1,7 +1,7 @@
 package com.example.sigback.controller;
 
 import com.example.sigback.dto.OrderItemDTO;
-import com.example.sigback.entity.Order;
+import com.example.sigback.dto.SetRackDTO;
 import com.example.sigback.entity.OrderItem;
 import com.example.sigback.service.OrderItemService;
 import org.modelmapper.ModelMapper;
@@ -40,6 +40,12 @@ public class OrderItemController {
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(itemDTOS);
+    }
+
+    @PostMapping("/rack")
+    public ResponseEntity<OrderItemDTO> setRack(@RequestBody SetRackDTO setRackDTO) {
+        final OrderItem orderItem = service.setRack(setRackDTO.getOrderItem(), setRackDTO.getType());
+        return ResponseEntity.ok(mapper.map(orderItem, OrderItemDTO.class));
     }
 
     @PutMapping("/{id}")

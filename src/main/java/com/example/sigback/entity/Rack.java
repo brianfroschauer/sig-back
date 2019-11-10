@@ -18,4 +18,14 @@ public class Rack {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
+
+    @Column(name = "type")
+    private RackType type;
+
+    @Column(name = "number")
+    private int number;
+
+    public Rack(int number) {
+        this.number = number;
+    }
 }

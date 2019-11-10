@@ -1,6 +1,7 @@
 package com.example.sigback.service;
 
 import com.example.sigback.entity.OrderItem;
+import com.example.sigback.entity.RackType;
 
 import java.util.List;
 
@@ -25,4 +26,6 @@ public interface OrderItemService {
      * @return the update order.
      */
     OrderItem update(Long id, OrderItem orderItem);
+
+    OrderItem setRack(OrderItem orderItem, RackType type);
 }

@@ -30,6 +30,16 @@ public class OrderItem {
     @Column(name = "state")
     private OrderItemState state;
 
+    @ManyToOne
+    private Stand stand;
+
+    public OrderItem(Product product, int quantity, OrderItemState state, Stand stand) {
+        this.product = product;
+        this.quantity = quantity;
+        this.state = state;
+        this.stand = stand;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,5 +52,9 @@ public class OrderItem {
     @Override
     public int hashCode() {
         return Objects.hash(getProduct(), getQuantity());
+    }
+
+    public OrderItem clone2() {
+        return new OrderItem(product, quantity, state, stand);
     }
 }
