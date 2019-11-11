@@ -49,7 +49,7 @@ public class ClaimController {
         return ResponseEntity.ok(claimDTOS);
     }
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<OrderDTO> create(@RequestBody @Valid ClaimDTO claimDTO) {
         final Order order = service.create(mapper.map(claimDTO, Claim.class));
 
@@ -58,6 +58,12 @@ public class ClaimController {
                 .buildAndExpand(order.getId()).toUri();
 
         return ResponseEntity.created(location).body(mapper.map(order, OrderDTO.class));
+    }
+
+    @PostMapping("/resolve")
+    public ResponseEntity<OrderDTO> resolve(@RequestBody @Valid ClaimDTO claimDTO) {
+        service.resolve(mapper.map(claimDTO, Claim.class));
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{id}")

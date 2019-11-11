@@ -40,4 +40,11 @@ public interface ClaimService {
      * @param id of the claim to be deleted.
      */
     void delete(Long id);
+
+    /**
+     * Resolve claim.
+     *
+     * @param claim to be resolved.
+     */
+    void resolve(Claim claim);
 }
