@@ -87,4 +87,10 @@ public class OrderItemController {
         final OrderItem orderItem = service.update(id, mapper.map(orderItemDTO, OrderItem.class));
         return ResponseEntity.ok(mapper.map(orderItem, OrderItemDTO.class));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
