@@ -4,6 +4,7 @@ import com.example.sigback.entity.*;
 import com.example.sigback.exception.EntityNotFoundException;
 import com.example.sigback.repository.ClaimRepository;
 import com.example.sigback.repository.OrderItemRepository;
+import com.example.sigback.repository.OrderRepository;
 import com.example.sigback.service.ClaimService;
 import com.example.sigback.service.OrderService;
 import org.springframework.stereotype.Service;
@@ -21,13 +22,16 @@ public class ClaimServiceImpl implements ClaimService {
     private final ClaimRepository repository;
     private final OrderService orderService;
     private final OrderItemRepository orderItemRepository;
+    private final OrderRepository orderRepository;
 
     public ClaimServiceImpl(ClaimRepository repository,
                             OrderService orderService,
-                            OrderItemRepository orderItemRepository) {
+                            OrderItemRepository orderItemRepository,
+                            OrderRepository orderRepository) {
         this.repository = repository;
         this.orderService = orderService;
         this.orderItemRepository = orderItemRepository;
+        this.orderRepository = orderRepository;
     }
 
     @Override
@@ -65,6 +69,9 @@ public class ClaimServiceImpl implements ClaimService {
             item.setState(OrderItemState.INITIAL);
             orderItemRepository.save(item);
         }
+        final Order order = claim.getOrder();
+        order.setState(OrderState.VALID);
+        orderRepository.save(order);
         repository.delete(claim);
     }
 }

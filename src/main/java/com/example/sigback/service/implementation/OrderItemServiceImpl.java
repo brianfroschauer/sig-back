@@ -101,4 +101,17 @@ public class OrderItemServiceImpl implements OrderItemService {
     public List<OrderItem> findNonConformity() {
         return repository.findAllByStateNonConformity();
     }
+
+    @Override
+    public void delete(Long id) {
+        final OrderItem orderItem = findOne(id);
+        repository.delete(orderItem);
+    }
+
+    @Override
+    public OrderItem findOne(Long id) {
+        return repository
+                .findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+    }
 }

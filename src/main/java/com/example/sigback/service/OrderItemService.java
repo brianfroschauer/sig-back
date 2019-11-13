@@ -34,4 +34,13 @@ public interface OrderItemService {
     List<OrderItem> findQuality();
 
     List<OrderItem> findNonConformity();
+
+    OrderItem findOne(Long id);
+
+    /**
+     * Delete the order item with the provided id.
+     *
+     * @param id of the order item to be deleted.
+     */
+    void delete(Long id);
 }
