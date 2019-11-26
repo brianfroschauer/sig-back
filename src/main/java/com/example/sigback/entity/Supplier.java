@@ -27,4 +27,10 @@ public class Supplier {
 
     @Column(name = "business_name")
     private String businessName;
+
+    public Supplier(String name, String cuit, String businessName) {
+        this.name = name;
+        this.cuit = cuit;
+        this.businessName = businessName;
+    }
 }

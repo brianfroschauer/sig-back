@@ -26,6 +26,11 @@ public class Product {
     @Column(name = "unit", nullable = false)
     private String unit;
 
+    public Product(String name, String unit) {
+        this.name = name;
+        this.unit = unit;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
