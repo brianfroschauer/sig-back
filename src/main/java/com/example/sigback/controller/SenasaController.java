@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  * Author: brianfroschauer
  * Date: 26/10/2019
  */
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://sig-front.herokuapp.com")
 @RestController
 @RequestMapping("/senasa")
 public class SenasaController {
